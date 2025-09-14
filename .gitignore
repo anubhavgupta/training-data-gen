@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Logs
+logs
+
+# training data files
+test.json
+prompt.js
+test.zip

@@ -1,0 +1,12 @@
+{
+  "name": "openai-api-client",
+  "version": "1.0.0",
+  "description": "Node.js client for OpenAI chat compatible API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
