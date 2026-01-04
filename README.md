@@ -1,16 +1,17 @@
 # Instructions
 
 1. Install package: `npm install training-data-gen --save`.
-2. Create a file `index.js` and import  `getTrainingDataGen`.
+2. Make sure in your package.json, you are using `"type": "module"`. 
+3. Create a file `index.js` and import  `getTrainingDataGen`.
 `import { getTrainingDataGen } from "training-data-gen";`
-3. Use `getTrainingDataGen` to get the generator function. 
+4. Use `getTrainingDataGen` to get the generator function. 
 ```JS
 const generate = await getTrainingDataGen({
     systemMsg: `<instructions for generating training data>`,
     trainingDataSchema: <schema of the training data>,
 });
 ```
-4. Execute generate fn with different training data set usecases.
+5. Execute generate fn with different training data set usecases.
 ```JS
 generate([
     `Generate a training data for X usecase`.

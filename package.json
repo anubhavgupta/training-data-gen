@@ -8,6 +8,11 @@
     "name": "Anubhav Gupta",
     "email": "anubhav200@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anubhavgupta/training-data-gen.git"
+  },
+  "homepage": "https://github.com/anubhavgupta/training-data-gen",
   "keywords": [
     "AI",
     "LLM",
