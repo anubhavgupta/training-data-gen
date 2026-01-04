@@ -1,8 +1,8 @@
-import type { ITool, IToolResult, IToolArgs } from "./tool.interface.ts";
+import type { ITool, IToolResult, IToolArgs, IToolInputSchema } from "./tool.interface.ts";
 import { BaseTool } from "./tool.interface.ts";
 import { readFile } from "node:fs/promises";
 import { writeFileSync } from "node:fs";
-import { trainingDataSchema } from "../../prompt.ts";
+import { getStore } from "../../api/configStore.ts";
 /**
  * Input Arguments
  */
@@ -18,7 +18,12 @@ type ITrainingDataItem = IToolArgs & {
  */
 class CreateTrainingData extends BaseTool<ITrainingDataItem> {
     async executeTool(input: ITrainingDataItem): Promise<IToolResult> {
-        let oldData = JSON.parse(await readFile("training-data.json", { encoding: "utf8" })) as Array<ITrainingDataItem>;
+        let oldData: Array<ITrainingDataItem> = [];
+        try {
+            oldData = JSON.parse(await readFile("training-data.json", { encoding: "utf8" })) as Array<ITrainingDataItem>;
+        } catch(ex) {
+            console.log("training-data.json file doesn't exists, we will create a new one.");
+        }
         oldData = oldData.concat([input]);
         try {
             writeFileSync("training-data.json", JSON.stringify(oldData, null, 2), "utf-8");
@@ -46,7 +51,7 @@ const createTrainingDataTool: ITool<CreateTrainingData> = {
     name: "createTrainingData",
     description:
         `Adds a new training example to the training dataset.`,
-    inputSchema: trainingDataSchema,
+    inputSchema: getStore().trainingDataSchema as IToolInputSchema,
     implementation: CreateTrainingData
 };
 

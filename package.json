@@ -2,12 +2,15 @@
   "name": "training-data-gen",
   "version": "1.0.0",
   "description": "CLI tool for generating training data using OpenAI's API compatible endpoints.",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.ts"
   },
   "dependencies": {
     "openai": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3"
   }
 }

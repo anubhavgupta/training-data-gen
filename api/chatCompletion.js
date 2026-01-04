@@ -3,7 +3,7 @@ import { getTools } from "../tools/registry.ts";
 import { callToolsWithMessageManager, hasToolCalls } from "../tools/toolCaller.ts";
 import { JSONTransformStream, StrExtractorStream } from "./streamHelpers.js";
 import { processQwenToolCalls } from './tool-parser.js';
-import * as PROMPT from "../prompt.ts";
+import { getStore } from "./configStore.ts";
 
 
 const CLIENT_TYPES = {
@@ -18,7 +18,7 @@ const lmStudioClient = new OpenAI({
     apiKey: "lm-studio",
     dangerouslyAllowBrowser: false,
     stream: true,
-    ...(PROMPT.openAIClientOverrides ?? {})
+    ...(getStore().openAIClientOverrides ?? {})
 }); 
 
 

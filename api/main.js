@@ -1,19 +1,19 @@
-import { systemMsg, dataSetTypes } from "../prompt.ts";
+import { getStore } from "./configStore.ts";
 import { getAgenticLoop, getLoopStopper } from "../agentic-loop/index.ts";
 import { MessageManager } from "./MessageManager.ts";
 
 const mm = new MessageManager();
-mm.add(mm.roles.system, systemMsg);
+mm.add(mm.roles.system, getStore().systemMsg);
 
 // Example usage function
-async function PrepareTrainingData(userAsk = dataSetTypes, i = 0) {
+async function PrepareTrainingData(userAsk = getStore().dataSetTypes, i = 0) {
   try {
     if(i > userAsk.length - 1) {
       console.log('Finish...');
       return;
     } 
 
-    console.log('For userAsk: ', i+1);
+    console.log('For dataSetType: ', i+1);
 
     const agenticLoop = getAgenticLoop();
     const loopStopper = getLoopStopper();
