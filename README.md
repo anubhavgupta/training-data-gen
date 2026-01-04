@@ -3,7 +3,9 @@
 1. Install package: `npm install training-data-gen --save`.
 2. Make sure in your package.json, you are using `"type": "module"`. 
 3. Create a file `index.js` and import  `getTrainingDataGen`.
-`import { getTrainingDataGen } from "training-data-gen";`
+```JS
+import { getTrainingDataGen } from "training-data-gen";
+```
 4. Use `getTrainingDataGen` to get the generator function. 
 ```JS
 const generate = await getTrainingDataGen({
