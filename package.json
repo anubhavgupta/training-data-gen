@@ -1,9 +1,20 @@
 {
   "name": "training-data-gen",
   "version": "1.0.0",
-  "description": "CLI tool for generating training data using OpenAI's API compatible endpoints.",
+  "description": "Small JS tool for generating training data using OpenAI's API compatible endpoints. Works for local LLMs as well. #localLLAMA",
   "main": "index.ts",
   "type": "module",
+  "author": {
+    "name": "Anubhav Gupta",
+    "email": "anubhav200@gmail.com"
+  },
+  "keywords": [
+    "AI",
+    "LLM",
+    "training",
+    "data",
+    "generator"
+  ],
   "scripts": {
     "start": "node index.ts"
   },

@@ -19,9 +19,5 @@ async function getTrainingDataGen(config: TrainingDataGenConfig) {
 }
 
 export {
-    getTrainingDataGen,
-};
-
-export type  {
-    TrainingDataGenConfig
+    getTrainingDataGen
 };
